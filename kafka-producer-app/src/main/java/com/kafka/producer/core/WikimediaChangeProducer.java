@@ -16,7 +16,7 @@ public class WikimediaChangeProducer {
 	@Autowired
 	KafkaTemplate<String, String> kafkaTemplate;
 
-	public void sendMessage() throws InterruptedException //once called kafka topic is filled
+	public void sendMessage() throws InterruptedException //once called, kafka topic is filled ( below we specified the topic )
 	{
 		EventHandler eventHandler = new WikiMediaChangeHandler(kafkaTemplate , "wikimedia_recentchange") ;
 		String url = "https://stream.wikimedia.org/v2/stream/recentchange";
